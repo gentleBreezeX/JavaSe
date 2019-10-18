@@ -1,4 +1,4 @@
-package com.breeze.juc;
+package com.breeze.interview.collection;
 
 import java.util.Set;
 import java.util.UUID;

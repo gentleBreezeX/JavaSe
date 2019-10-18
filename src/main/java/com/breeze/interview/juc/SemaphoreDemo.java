@@ -1,4 +1,4 @@
-package com.breeze.juc.utils;
+package com.breeze.interview.juc;
 
 import java.util.Random;
 import java.util.concurrent.Semaphore;

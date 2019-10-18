@@ -1,5 +1,6 @@
 package com.breeze.interview.juc;
 
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -56,8 +57,26 @@ public class ThreadCommunication {
 
         PrintInteractive printInteractive = new PrintInteractive();
 
-        new Thread(printInteractive::printNumber, "A").start();
-        new Thread(printInteractive::printWord, "B").start();
+        ExecutorService executorService = new ThreadPoolExecutor(
+                2,
+                2,
+                2,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(3),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.CallerRunsPolicy()
+        );
+
+        try {
+            executorService.submit(printInteractive::printNumber);
+            executorService.submit(printInteractive::printWord);
+        } finally {
+            executorService.shutdown();
+        }
+
+//        new Thread(printInteractive::printNumber).start();
+//        new Thread(printInteractive::printWord).start();
+
 
     }
 }

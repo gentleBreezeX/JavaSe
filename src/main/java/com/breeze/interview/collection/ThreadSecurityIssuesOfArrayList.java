@@ -1,4 +1,4 @@
-package com.breeze.juc;
+package com.breeze.interview.collection;
 
 import java.util.ArrayList;
 import java.util.Collections;

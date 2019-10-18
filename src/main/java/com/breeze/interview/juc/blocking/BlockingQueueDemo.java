@@ -1,4 +1,4 @@
-package com.breeze.juc;
+package com.breeze.interview.juc.blocking;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

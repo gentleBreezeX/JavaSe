@@ -94,7 +94,7 @@ public class ThreadWaitNotifyDemo {
                     e.printStackTrace();
                 }
             }
-        }, "ThreadCommunication").start();
+        }, "A").start();
 
         new Thread(() -> {
             for (int i = 0; i < 10; i++) {
