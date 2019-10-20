@@ -51,9 +51,20 @@ import java.util.concurrent.*;
  *          尝试再次提交当前任务。
  *      4.DiscardPolicy：该策略默默地丢弃无法处理的任务，不予任何处理也不抛出异常。
  *          如果允许任务丢失，这是最好的一种策略。
+ *
+ * 自定义线程池的线程数应该怎么配置？
+ *      CPU密集型： CPU核数  +  1个线程  的线程池
+ *      IO密集型：1. 由于IO密集型任务线程并不是一直在执行任务，则应该配置尽可能多的线程，如CPU核数*2
+ *               2. 参考公式： CPU核数/1 - 阻塞系数  阻塞系数在0.8 ~ 0.9之间
+ *                            比如8核(四核八线程)CPU : 8/(1 - 0.9) = 80个
+ *
+ *
  */
 public class MyThreadPoolExecutor {
     public static void main(String[] args) {
+
+        System.out.println("CPU的线程数量：" + Runtime.getRuntime().availableProcessors());
+        System.out.println(8/(1 - 0.9));
 
         ExecutorService executorService = new ThreadPoolExecutor(
                 2,

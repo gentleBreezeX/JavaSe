@@ -61,6 +61,11 @@ public class CallableImpl {
 
         new Thread(integerFutureTask).start();
 
+        //类似于自旋锁，线程没有计算完成的话就自旋一下直到计算出结果
+        while (!integerFutureTask.isDone()){
+
+        }
+
         Integer result = null;
         try {
             result = integerFutureTask.get();

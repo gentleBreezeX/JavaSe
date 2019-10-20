@@ -60,8 +60,8 @@ public class VolatileDemo {
     public static void main(String[] args) {
 
         try {
-            rearrangement();
-        } catch (InterruptedException e) {
+            unAtomicity();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
