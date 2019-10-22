@@ -17,9 +17,7 @@ class PrintInteractive{//资源类  实现交互打印
         try {
             for (int i = 1; i <= 52; i++) {
                 while (flag % 3 == 0) {
-                    try {c1.await(); } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    try {c1.await(); } catch (InterruptedException e) { e.printStackTrace(); }
                 }
                 System.out.print(i);
                 flag++;
