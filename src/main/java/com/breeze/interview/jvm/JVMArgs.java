@@ -40,7 +40,18 @@ import java.util.concurrent.TimeUnit;
  *      java -XX:+PrintCommandLineFlags -version 常用的参数 可以查看垃圾回收器是哪个
  *
  * 5.平时工作中的JVM常用的基本配置：
- *      -Xms  -Xmx
+ *      -Xms  等价于 -XX:InitialHeapSize  初始大小内存，默认是物理内存的1/64
+ *      -Xmx  等价于 -XX:MaxHeapSize      最大分配内存，默认是物理内存的1/4
+ *      -Xss  等价于 -XX:ThreadStackSize  设置单个线程的大小，一般默认为512k ~ 1024k
+ *              -XX:ThreadStackSize=0 如果是0表示的是默认值
+ *      -Xmn  设置新生代的大小
+ *      -XX:MetaspaceSize 设置元空间大小
+ *      -XX:+PrintGCDetails 打印垃圾回收的一些信息
+ *      -XX:SurvivorRatio 设置新生代中Eden和s0 s1空间的比例
+ *              -XX:SurvivorRatio=8 就是8:1:1
+ *      -XX:NewRatio     配置年轻代与老年代在堆结构的占比
+ *              -XX:NewRatio=2 就是1:2
+ *      -XX:MaxTenuringThreshold=15 新生代晋升老年代需要的次数
  */
 public class JVMArgs {
     public static void main(String[] args) {
@@ -48,6 +59,6 @@ public class JVMArgs {
         System.out.println("*****使用jinfo -flag PrintGCDetails +进程号 查看是否开启打印GC收集细节");
 
         //暂停一会儿
-        try { TimeUnit.SECONDS.sleep(Integer.MAX_VALUE); } catch (InterruptedException e) {e.printStackTrace(); }
+        //try { TimeUnit.SECONDS.sleep(Integer.MAX_VALUE); } catch (InterruptedException e) {e.printStackTrace(); }
     }
 }
