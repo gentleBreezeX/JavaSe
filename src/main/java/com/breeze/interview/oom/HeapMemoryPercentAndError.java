@@ -1,4 +1,4 @@
-package com.breeze.jvm.oom;
+package com.breeze.interview.oom;
 
 import java.util.Random;
 
