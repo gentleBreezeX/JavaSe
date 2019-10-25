@@ -23,7 +23,7 @@ import java.util.Random;
  * 	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:124)
  * 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:448)
  * 	at java.lang.StringBuilder.append(StringBuilder.java:136)
- * 	at com.breeze.jvm.HeapMemoryPercentAndError.main(HeapMemoryPercentAndError.java:14)
+ * 	at com.breeze.jvm.OOMJavaHeapSpace.main(OOMJavaHeapSpace.java:14)
  * Heap
  *  PSYoungGen      total 1024K, used 699K [0x00000000ffe80000, 0x0000000100000000, 0x0000000100000000)
  *   eden space 512K, 64% used [0x00000000ffe80000,0x00000000ffed2f60,0x00000000fff00000)
@@ -36,7 +36,7 @@ import java.util.Random;
  *
 
  */
-public class HeapMemoryPercentAndError {
+public class OOMJavaHeapSpace {
     public static void main(String[] args){
 
         String str = "gentle breeze";
