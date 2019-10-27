@@ -52,7 +52,9 @@ public class SaleTicket {
         ExecutorService executorService = Executors.newCachedThreadPool();
 
         try {
-            for (int i = 0; i < 30; i++) executorService.execute(ticket::sale);
+            for (int i = 0; i < 30; i++) {
+                executorService.execute(ticket::sale);
+            }
         } finally {
             executorService.shutdown();
         }

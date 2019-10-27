@@ -111,4 +111,84 @@
 >            (1).拷贝小括号，写死右箭头，落地大括号
 >            (2).注解@FunctionalInterface           
 >            (3).default方法 (接口中可以有方法实例)         
->            (4).static方法            
+>            (4).static方法    
+
+# 三、Linux基础命令
+## 整机：top命令(精简版 uptime)
+    1.load average：负载均衡  三个值是1、5、15分钟  三个值相加除以三，超过0.6系统负载负担压力重
+    2.zombie：僵尸进程数
+    3.id：CPU的空闲率
+    4.按1 可以详细显示各个cpu的使用情况
+ 
+ ## CPU：vmstat命令
+    1. case： vmstat -n 2 3  --->  每隔2秒打印一条信息，总共取样三次
+    2. procs中：
+        1) r：运行和等待CPU时间片的进程数，原则上1核CPU的运行队列不超过2
+              整体系统的运行队列不能超过总核数的2倍
+        2) 等待资源的进程数，比如正在等待磁盘I/O 网络I/O等
+    3. cpu中：
+        1) us：用户进程消耗CPU时间百分比，长期大于50% 优化程序
+        2) sy：内核进程消耗的cpu时间百分比
+        3) us + sy参考值为80% 大于这个值，说明CPU不足
+        4) wa：系统等待IO的CPU时间百分比
+        5) st：来自于一个虚拟机偷取的CPU百分比
+    4.free -m：应用程序可用内存数  单位m
+    5.df -h： 磁盘剩余空间
+    6.磁盘IO：
+        1) iostat -xdk 2 3 每隔2秒取样3次  
+        2) 参数 util： 一秒中有百分几的时间用于IO操作，接近100% 表示磁盘带宽跑满，
+                        需要优化程序或增加磁盘
+    7.网络IO
+        1) ifstat 采样时间
+    8.  pidstat -d 采样时间 -p 进程号： 每隔几秒采样，打印详细IO情况                    
+    9.  pidstat -p 进程号 -r 采样时间： 每隔几秒取样，打印详细内存使用情况
+    10. pidstat -u 采样时间 -p 进程号： 每隔几秒取样，打印对应进程号详细CPU使用情况
+    
+ ## 当CPU占用高，系统变慢怎么解决
+    1.先用top命令找出CPU占比最高的
+    2.ps -ef或者jps进一步定位，得知是一个怎么样的后台程序
+    3.定位到具体的线程或代码
+        ps -mp 进程 -o THREAD,tid,time
+        -m 显示所有线程
+        -p pid进程使用CPU时间
+        -o 该参数后是用户自定义的格式
+    4.将需要的线程id转换为16进制格式(英文小写)
+        printf "%x\n" 有问题的线程id
+    5.jstack 进程id|grep tid(16进制线程id小写英文) -A60
+        case： jstack 5101 | grep 13ee -A60   
+        
+ # GitHub之骚操作
+ ## 常用词含义
+    1.watch: 会持续收到该项目的动态
+    2.fork: 复制某个项目到自己的GitHub仓库
+    3.star: 可以理解为点赞
+    4.clone: 将项目下载至本地
+    5.follow:关注你感兴趣的作者，会收到他们的动态
+ ## in关键词限制搜索范围
+    1.公式：xxx关键词  in:name 或description 或readme
+    2. xxx in:name 项目名中包含XXX
+    2. xxx in:description  项目描述包含xxx
+    3. xxx in:readme  项目的readme文件中包含xxx
+    4. 组合使用：搜索项目名或readme中包含
+        xxx in:name,readme
+ ## stars或fork数量关键词去查找
+    1.公式：xxx关键词 starts 通配符 :> 或者  :>=
+        springboot stars:>=5000
+        springcloud forks:>=5000
+    2. 组合使用
+        forks在100到200的，stars在80到100的
+        springboot forks:100..200 stars:80..100
+ ## awesome加强搜索
+    1.公式 awesome + 关键字
+    2.awesome系列 一般是用来收集学习、工具、书籍类相关的项目
+ ## 高亮显示哪一/多行   
+    1.公式：有代码的那个网址 在后面加 
+        #L13       高亮显示13行
+        #L13-L23   高亮显示13到23行
+ ## 项目内搜索
+    1.快捷键 t
+        在打开项目的时候直接按 t
+ 
+ ## 搜索某个地区内的大佬
+    1.上海地区java方向的用户
+        location:shanghai language:java

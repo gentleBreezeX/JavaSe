@@ -30,7 +30,9 @@ class Window3 implements Runnable{
                 if (ticket > 0) {
                     System.out.println(Thread.currentThread().getName() + ":正在卖第 " + (ticket--)
                             + "张票，还剩：" + ticket);
-                }else break;
+                }else {
+                    break;
+                }
             }
         }
     }

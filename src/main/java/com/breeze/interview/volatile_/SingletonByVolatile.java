@@ -22,7 +22,9 @@ public class SingletonByVolatile {
         if (instance == null) {
             //在加锁前后进行判断
             synchronized (SingletonByVolatile.class) {
-                if (instance == null) instance = new SingletonByVolatile();
+                if (instance == null) {
+                    instance = new SingletonByVolatile();
+                }
             }
         }
         return instance;

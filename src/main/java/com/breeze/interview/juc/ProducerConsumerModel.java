@@ -97,19 +97,27 @@ public class ProducerConsumerModel {
         ShareData shareData = new ShareData();
 
         new Thread(() -> {
-            for (int i = 0; i < 5; i++) shareData.add();
+            for (int i = 0; i < 5; i++) {
+                shareData.add();
+            }
         }, "AAA").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 5; i++) shareData.sub();
+            for (int i = 0; i < 5; i++) {
+                shareData.sub();
+            }
         }, "BBB").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 5; i++) shareData.add();
+            for (int i = 0; i < 5; i++) {
+                shareData.add();
+            }
         }, "CCC").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 5; i++) shareData.sub();
+            for (int i = 0; i < 5; i++) {
+                shareData.sub();
+            }
         }, "DDD").start();
 
     }
