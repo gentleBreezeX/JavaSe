@@ -32,8 +32,7 @@ public class SpinLockDemo {
 
 
     public static void main(String[] args) {
-
-        /**
+        /*
          * 运行结果
          * A	 invoked myLock()=====
          * B	 invoked myLock()=====

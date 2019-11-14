@@ -39,6 +39,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  *                  lock.unlock();
  *              }
  *          }
+ *
  */
 public class ThreadSecurityIssuesOfArrayList {
     public static void main(String[] args) {

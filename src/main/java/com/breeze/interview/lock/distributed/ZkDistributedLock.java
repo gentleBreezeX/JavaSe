@@ -7,7 +7,6 @@ import java.util.concurrent.CountDownLatch;
 
 public class ZkDistributedLock extends ZkAbstractTemplateLock {
 
-
     @Override
     public boolean tryZkLock() {
         try {

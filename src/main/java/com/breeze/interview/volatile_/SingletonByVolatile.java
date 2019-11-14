@@ -14,7 +14,8 @@ public class SingletonByVolatile {
     private static volatile SingletonByVolatile instance = null;
 
     private SingletonByVolatile() {
-        System.out.println(Thread.currentThread().getName() + "\t我是构造方法SingletonByVolatile()");
+        System.out.println(Thread.currentThread().getName()
+                + "\t我是构造方法SingletonByVolatile()");
     }
 
     //DCL模式 (Double Check Lock 双端检锁机制)
@@ -35,11 +36,10 @@ public class SingletonByVolatile {
 //        System.out.println(SingletonByVolatile.getInstance() == SingletonByVolatile.getInstance());
 //        System.out.println(SingletonByVolatile.getInstance() == SingletonByVolatile.getInstance());
 //        System.out.println(SingletonByVolatile.getInstance() == SingletonByVolatile.getInstance());
-//
+
         //并发多线程后
         for (int i = 1; i <= 50; i++) {
             new Thread(SingletonByVolatile::getInstance, String.valueOf(i)).start();
-
         }
 
     }

@@ -16,7 +16,6 @@ public class SoftReferenceDemo {
         System.out.println(o1);//null
         System.out.println(softReference.get());//java.lang.Object@5cad8086
     }
-
     /**
      * -Xms5m -Xmx5m -XX:+PrintGCDetails
      */
@@ -37,10 +36,8 @@ public class SoftReferenceDemo {
             System.out.println(softReference.get());//null
         }
     }
-
     public static void main(String[] args) {
         //softRef_Memory_Enough();
-
         softRef_Memory_NotEnough();
     }
 

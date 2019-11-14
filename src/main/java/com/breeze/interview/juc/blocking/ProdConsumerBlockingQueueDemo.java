@@ -57,7 +57,6 @@ class MyResource{
                     + result + "成功");
         }
     }
-
     public void stop() throws Exception{
         this.flag = false;
     }
@@ -93,7 +92,6 @@ public class ProdConsumerBlockingQueueDemo {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }, "Consumer").start();
 
         //暂停一会儿

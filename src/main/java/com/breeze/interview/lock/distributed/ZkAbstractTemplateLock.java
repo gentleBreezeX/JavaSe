@@ -15,7 +15,6 @@ public abstract class ZkAbstractTemplateLock implements ZkLock {
     String path = "/zkLock";
     CountDownLatch countDownLatch = null;
 
-
     public abstract boolean tryZkLock();
     public abstract void waitZkLock();
 
@@ -31,7 +30,6 @@ public abstract class ZkAbstractTemplateLock implements ZkLock {
             lock();
         }
     }
-
     @Override
     public void unlock() {
         if (zkClient != null) {

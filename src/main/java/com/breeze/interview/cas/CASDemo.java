@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *      【比较并交换】
  *
  *  面试题：
- *    CAS ---> UnSafe ---> CAS底层原理 ---> ABA ---> 原子引用更新 ---> 如何规避ABA问题
+ *    CAS ---> CAS底层原理 ---> UnSafe  ---> ABA ---> 原子引用更新 ---> 如何规避ABA问题
  *
  *      如果期望值和主物理内存的值一样就修改，返回true
  *      如果期望值和主物理内存的值不一样就不修改，返回false

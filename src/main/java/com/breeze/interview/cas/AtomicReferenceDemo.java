@@ -53,9 +53,11 @@ public class AtomicReferenceDemo {
 
         atomicReference.set(z3);
 
-        System.out.println(atomicReference.compareAndSet(z3, l4) + "\t" + atomicReference.get().toString());
+        System.out.println(atomicReference.compareAndSet(z3, l4) +
+                "\t" + atomicReference.get().toString());
 
-        System.out.println(atomicReference.compareAndSet(z3, l4) + "\t" + atomicReference.get().toString());
+        System.out.println(atomicReference.compareAndSet(z3, l4) +
+                "\t" + atomicReference.get().toString());
 
     }
 }

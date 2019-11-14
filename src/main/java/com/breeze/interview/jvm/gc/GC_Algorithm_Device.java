@@ -130,7 +130,9 @@ public class GC_Algorithm_Device {
         try {
             String str = "gentle";
             while (true){
-                str += str + new Random().nextInt(88888888) + new Random().nextInt(99999999);
+                str += str + new Random().nextInt(88888888) +
+                        new Random().nextInt(99999999);
+
                 str.intern();
             }
         }catch (Throwable e){

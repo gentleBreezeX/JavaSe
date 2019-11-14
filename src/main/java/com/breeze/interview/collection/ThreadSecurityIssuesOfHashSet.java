@@ -1,5 +1,7 @@
 package com.breeze.interview.collection;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -15,7 +17,6 @@ import java.util.concurrent.CopyOnWriteArraySet;
  *          public boolean add(E e) {
  *              return map.put(e, PRESENT)==null;
  *          }
- *
  */
 public class ThreadSecurityIssuesOfHashSet {
     public static void main(String[] args) {

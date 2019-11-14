@@ -154,8 +154,8 @@
         -o 该参数后是用户自定义的格式
     4.将需要的线程id转换为16进制格式(英文小写)
         printf "%x\n" 有问题的线程id
-    5.jstack 进程id|grep tid(16进制线程id小写英文) -A60
-        case： jstack 5101 | grep 13ee -A60   
+    5.jstack 线程id|grep tid(16进制线程id小写英文) -A60
+            case： jstack 5101 | grep 13ee -A60   
         
  # GitHub之骚操作
  ## 常用词含义

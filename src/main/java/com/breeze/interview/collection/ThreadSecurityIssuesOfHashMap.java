@@ -14,7 +14,7 @@ public class ThreadSecurityIssuesOfHashMap {
     public static void main(String[] args) {
 
         //Map<String, String> map = new HashMap<>();
-        //Map<String, String> map = Collections.synchronizedMap(new HashMap<>());
+        //Map<String, String> map1 = Collections.synchronizedMap(new HashMap<>());
         Map<String, String> map = new ConcurrentHashMap<>();
 
         //开启30条线程对集合进行操作

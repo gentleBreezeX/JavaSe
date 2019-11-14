@@ -15,13 +15,15 @@ class HoldLockThread implements Runnable{
     @Override
     public void run() {
         synchronized (lockA) {
-            System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lockA + "\t尝试获得：" + lockB);
+            System.out.println(Thread.currentThread().getName() + "\t 自己持有："
+                    + lockA + "\t尝试获得：" + lockB);
             //暂停一会儿
             try {
                 TimeUnit.SECONDS.sleep(2); } catch (InterruptedException e) {e.printStackTrace(); }
 
             synchronized (lockB) {
-                System.out.println(Thread.currentThread().getName() + "\t自己持有：" + lockB + "\t尝试获得：" + lockA);
+                System.out.println(Thread.currentThread().getName() + "\t自己持有："
+                        + lockB + "\t尝试获得：" + lockA);
             }
         }
     }

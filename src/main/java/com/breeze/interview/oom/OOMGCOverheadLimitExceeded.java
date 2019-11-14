@@ -28,7 +28,8 @@ public class OOMGCOverheadLimitExceeded {
             }
         } catch (Throwable e) {
             System.out.println("********i: " + i);
-            e.printStackTrace();//Exception in thread "main" java.lang.OutOfMemoryError: GC overhead limit exceeded
+            //Exception in thread "main" java.lang.OutOfMemoryError: GC overhead limit exceeded
+            e.printStackTrace();
             throw e;
         }
     }

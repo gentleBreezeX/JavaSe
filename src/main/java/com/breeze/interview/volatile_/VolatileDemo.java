@@ -24,7 +24,6 @@ class MyData {//资源类
     }
 
     //请注意，此时number前面是加入volatile关键字修饰的，volatile不保证原子性
-
     public void addPlusPlus(){
         number++;
     }
@@ -33,9 +32,6 @@ class MyData {//资源类
     public void addMyAtomic(){
         atomicInteger.getAndIncrement();
     }
-
-
-
 }
 
 /**
@@ -60,7 +56,7 @@ public class VolatileDemo {
     public static void main(String[] args) {
 
         try {
-            unAtomicity();
+            visibility();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,9 +111,10 @@ public class VolatileDemo {
             Thread.yield();
         }
 
-        System.out.println(Thread.currentThread().getName() + "\tfinally number value： " + myData.number);
-        System.out.println(Thread.currentThread().getName() + "\tmission is over main atomic value: " + myData.atomicInteger);
-
+        System.out.println(Thread.currentThread().getName()
+                + "\tfinally number value： " + myData.number);
+        System.out.println(Thread.currentThread().getName()
+                + "\tmission is over main atomic value: " + myData.atomicInteger);
     }
 
     /**
@@ -130,13 +127,13 @@ public class VolatileDemo {
 
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\tcome in");
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+            try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
+
             myData.addTo60();
-            System.out.println(Thread.currentThread().getName() + "\tupdated number value: " + myData.number);
+
+            System.out.println(Thread.currentThread().getName()
+                    + "\tupdated number value: " + myData.number);
         }, "A").start();
 
         //第二个线程  main
@@ -144,7 +141,7 @@ public class VolatileDemo {
             //不加volatile 程序会一直在这里打转，下面的mission is over不会执行
             //加了volatile 下面会打印
         }
-
-        System.out.println(Thread.currentThread().getName() + "\tmission is over main number value: " + myData.number);
+        System.out.println(Thread.currentThread().getName()
+                + "\tmission is over main number value: " + myData.number);
     }
 }

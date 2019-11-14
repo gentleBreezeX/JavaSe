@@ -83,12 +83,10 @@ public class MyThreadPoolExecutor {
         try {
             for (int i = 1; i <= 20; i++) {
                 executorService.submit(() -> {
-                    System.out.println(Thread.currentThread().getName() + "\t办理业务: " + new Random().nextInt(10));
+                    System.out.println(Thread.currentThread().getName() + "\t办理业务: "
+                            + new Random().nextInt(10));
                 });
             }
-        } finally {
-            executorService.shutdown();
-        }
-
+        } finally { executorService.shutdown(); }
     }
 }
